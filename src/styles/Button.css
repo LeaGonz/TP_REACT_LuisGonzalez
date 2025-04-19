@@ -1,0 +1,41 @@
+.btn {
+  transition: background-color 0.3s;
+  min-width: 15%;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.btn-red {
+  background-color: #c73e3a;
+  color: white;
+}
+
+.btn-red:hover {
+  background-color: #a52a2a;
+  color: white;
+}
+
+.btn-yellow {
+  background-color: #EAB25E;
+  color: black;
+}
+
+.btn-yellow:hover {
+  background-color: #F9A312;
+  color: black;
+
+}
+
+.btn-dark {
+  background-color: #333;
+  color: white;
+}
+
+.btn-dark:hover {
+  background-color: #222;
+  color: white;
+}
