@@ -19,12 +19,5 @@
     "email": "licinio@gmail.com",
     "password": "123456",
     "role": "cozinha"
-  },
-  {
-    "firstName": "Luis",
-    "lastName": "Gonzalez",
-    "email": "l@l.com",
-    "password": "1",
-    "role": "consumidor"
   }
 ]

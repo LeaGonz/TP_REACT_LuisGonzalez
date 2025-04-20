@@ -18,11 +18,8 @@ export default function Gestor() {
         const newErrors = [];
 
         if (!data.entrada) newErrors.push('Entrada é obrigatória');
-
         if (!data.prato) newErrors.push('Prato é obrigatório');
-
         if (!data.sobremesa) newErrors.push('Sobremesa é obrigatória');
-
         if (!data.valor || isNaN(parseFloat(data.valor))) newErrors.push('Valor do menu é obrigatório e deve ser um número');
 
         if (newErrors.length > 0) {
@@ -30,8 +27,14 @@ export default function Gestor() {
             return;
         }
 
+        // Verificamos o ID a seguir
+        const responseId = await fetch("http://localhost:3000/menu");
+        const existingMenu = await responseId.json();
+        const nextId = existingMenu.menu?.length > 0 ? Math.max(...existingMenu.menu.map(m => m.id)) + 1 : 1;
+
         // Preparamos os dados para enviar
         const menu = {
+            id: nextId,
             entrada: data.entrada,
             prato: data.prato,
             sobremesa: data.sobremesa,

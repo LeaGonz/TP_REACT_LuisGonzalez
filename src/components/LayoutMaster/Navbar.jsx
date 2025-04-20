@@ -16,8 +16,9 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <div className="container">
                 {/* Logo e Título do Site */}
-                <a className="navbar-brand" href="index.html">
-                    <img src="./src/assets/logo.png" width="50" alt="Logo" />Lamasan</a>
+                <Link className="navbar-brand" to="/">
+                    <img src="./src/assets/logo.png" width="50" alt="Logo" />Lamasan
+                </Link>
                 {/*  Botão Toggler para Dispositivos Móveis */}
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +55,7 @@ export default function Navbar() {
                             <>
                                 {/* LOGOUT */}
                                 <li className="nav-item mx-2">
-                                    <div className="alert alert-dark d-flex align-items-center" >
+                                    <div className="alert alert-dark p-1 mt-3 d-flex align-items-center" >
                                         Olá, {fullName}
                                     </div>
                                 </li>

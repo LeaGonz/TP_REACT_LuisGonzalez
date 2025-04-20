@@ -22,8 +22,13 @@ app.get("/menu", async (req, res) => {
 
 app.get("/user-menu", async (req, res) => {
   const fileContent = await fs.readFile("./data/user-menu.json");
-  const menu = JSON.parse(fileContent);
-  res.status(200).json({ menu });
+  const menus = JSON.parse(fileContent);
+  const email = req.query.email;
+  if (email) {
+    const menu = menus.find(m => m.email === email);
+    return res.status(200).json(menu || { email, name: "", menus: [] });
+  }
+  res.status(200).json({ menus });
 });
 
 app.get("/users", async (req, res) => {
@@ -45,12 +50,38 @@ app.post("/menu", async (req, res) => {
   res.status(200).json({ message: "menu criado!" });
 });
 
-// app.put("/user-menu", async (req, res) => {
-//   const menu = req.body.menu;
-//   await fs.writeFile("./data/user-menu.json", JSON.stringify(menu));
-//   res.status(200).json({ message: "User places updated!" });
-// });
+app.put("/user-menu", async (req, res) => {
+  const { email, name, menus } = req.body;
+  const fileContent = await fs.readFile("./data/user-menu.json");
+  const users = JSON.parse(fileContent);
 
+  const userIndex = users.findIndex(u => u.email === email);
+
+  if (userIndex >= 0) {
+    users[userIndex].menus = menus;
+  } else {
+    users.push({ email, name, menus });
+  }
+
+  await fs.writeFile("./data/user-menu.json", JSON.stringify(users, null, 2));
+  res.status(200).json({ success: true });
+});
+
+app.put("/user-menu/remove", async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ success: false, message: "Email é obrigatório" });
+  }
+
+  const fileContent = await fs.readFile("./data/user-menu.json");
+  const users = JSON.parse(fileContent);
+
+  const updatedUsers = users.filter(user => user.email !== email);
+
+  await fs.writeFile("./data/user-menu.json", JSON.stringify(updatedUsers, null, 2));
+  res.status(200).json({ success: true, message: "User removido com sucesso" });
+});
 
 //ROTAS DOS USERS
 

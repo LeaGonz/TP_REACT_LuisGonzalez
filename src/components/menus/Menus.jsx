@@ -1,12 +1,17 @@
 import '../menus/Menus.css';
 
-export default function Menus({ index, menu = null }) {
+export default function Menus({ menu = null, selectedMenu, showStatus = false }) {
     return (
         <div className="menu-item col-md-4 mb-4">
-            <button>
+            <button onClick={() => selectedMenu(menu)}>
                 <div className="menu-card">
                     <div className="menu-card-header">
-                        <h5>Menu #{index + 1}</h5>
+                        <h5>Menu #{menu.id}</h5>
+                        {showStatus && (
+                            <div className="alert alert-success p-0 mb-0">
+                                {menu.status.charAt(0).toUpperCase() + menu.status.slice(1).toLowerCase()}
+                            </div>
+                        )}
                     </div>
 
                     <div className="menu-card-body">

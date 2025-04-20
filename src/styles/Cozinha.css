@@ -1,0 +1,131 @@
+.cozinha-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cozinha-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.loading, .alert-info {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+.pedidos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.user-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.user-info {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-info h3 {
+    margin: 0;
+    color: #2c3e50;
+}
+
+.user-info p {
+    margin: 5px 0 0;
+    color: #7f8c8d;
+}
+
+.menus-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.menu-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    background: #f9f9f9;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.menu-header h4 {
+    margin: 0;
+    color: #34495e;
+}
+
+.status {
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status.pendente {
+    background-color: #f39c12;
+    color: white;
+}
+
+.status.em-confección {
+    background-color: #3498db;
+    color: white;
+}
+
+.status.entregue {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.menu-details p {
+    margin: 8px 0;
+    color: #34495e;
+}
+
+.menu-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-preparar {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-preparar:hover {
+    background-color: #e67e22;
+}
+
+.btn-entregar {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-entregar:hover {
+    background-color: #27ae60;
+}
